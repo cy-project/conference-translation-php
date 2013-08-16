@@ -1,8 +1,9 @@
 <?php
 class DB {
   
-  private $dbh  = null;
-  private $encode   = SYS_DBENCODE;
+  private $dbh        = null;
+  private $encode     = SYS_DBENCODE;
+  private $fetchModel = PDO::FETCH_ASSOC;
 
   public function __construct() {
     $dbConnection   = SYS_DBTYPE .':host=' .SYS_DBHOST .';dbname=' .SYS_DBNAME;
@@ -19,7 +20,46 @@ class DB {
 
   private function initExec() {
     $sql      = 'set names '. $this->encode;
-    $dbResult = $this->dbh->exec($sql);
+    $this->dbh->exec($sql);
+  }
+
+  private function _pdoStatment( $sql ) {
+    $stmt = null;
+
+    $this->initExec();
+    
+    try {
+      $stmt = $this->dbh->prepare($sql);
+      $stmt->execute();
+    } catch (PDOException $e) {
+      debugOutputException($e);
+    }
+
+    return $stmt;
+  }
+
+  public function dbGetAll( $sql ) {
+    $stmt = $this->_pdoStatment($sql);
+    $rs = $stmt->fetchAll($this->fetchModel);
+
+    if ( !$rs ) {
+      return false;
+    }
+
+    return $rs;
+  }
+
+  public function dbGetOne( $sql ) {
+    $sql .= ' LIMIT 1';
+
+    $stmt = $this->_pdoStatment($sql);
+    $rs   = $stmt->fetch($this->fetchModel);
+
+    if ( !$rs ) {
+      return false;
+    }
+
+    return $rs;
   }
 
   public function dbInsert( $table, $arrayField) {
@@ -37,10 +77,10 @@ class DB {
     $arrayColumns  = array_keys($arrayField);
     $arrayValues   = [];
 
+
     if ( $queryType == 'INSERT' ) {
       $columns = $arrayColumns[0];
       $values  = "?";
-
       for ($i = 0; $i < count($arrayColumns); $i++) {
         $arrayValues[$i] = $arrayField[$arrayColumns[$i]];
 
@@ -50,12 +90,14 @@ class DB {
         }
       }
 
-      $this->initExec();
       $sql  = "INSERT INTO {$table} ({$columns}) VALUES ({$values})";
       $stmt = $this->dbh->prepare( $sql );
     }
+    else if ( $queryType == 'UPDATE' ) {
+    }
 
     try {
+      $this->initExec();
       $result = $stmt->execute($arrayValues);
     } catch (PDOException $e) {
       $this->debugOutputException($e);
