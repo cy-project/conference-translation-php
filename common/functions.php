@@ -28,7 +28,7 @@ function keyExists( $key, $obj ) {
   return String
 */
 function dbEncrypt( $data ) {
-  return SHA1(SHA1($data) .'conference-translation');
+  return SHA1($data);
 }
 
 /**
