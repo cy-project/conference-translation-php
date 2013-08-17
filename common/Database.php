@@ -61,7 +61,7 @@ class Database {
             $stmt = $this->dbh->prepare($sql);
             $stmt->execute();
         } catch (PDOException $e) {
-            outputDebugException($e);
+            throw new PDOException($e);
         }
 
         return $stmt;
