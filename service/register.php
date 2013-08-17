@@ -10,11 +10,8 @@ if (isset($_POST['content'])) {
   ];
 
   $mobile_phone = hasKeyExists('mobile_phone', $obj);
-  $email        = hasKeyExists('email'       , $obj);
-  $password     = hasKeyExists('password'    , $obj);
-  $name         = hasKeyExists('name'        , $obj);
 
-  if (!checkValues([$mobile_phone, $email, $password, $name])) {
+  if (!checkValues([$mobile_phone])) {
     $result['message']  = $MSG['empty_data_fails'];
     $result['success']  = false;
 
@@ -26,14 +23,11 @@ if (isset($_POST['content'])) {
   // create account
   $arrayField = [];
   $arrayField = [
-    'mobile_phone'  => $mobile_phone,
-    'email'         => $email,
-    'password'      => $password,
-    'name'          => $name
+    'mobile_phone'  => $mobile_phone
   ];
 
   $db = new database();
-  $dbResult = $db->insert( $table, $arrayField );
+  $dbResult = $db->insert($table, $arrayField);
 
   if ( $dbResult ) {
     $result['message']  = $MSG['add_data_success'];

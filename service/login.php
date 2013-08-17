@@ -16,10 +16,8 @@ if (isset($_POST['content'])) {
   }
 
   $mobile_phone = hasKeyExists('mobile_phone', $obj);
-  $email        = hasKeyExists('email'       , $obj);
-  $password     = hasKeyExists('password'    , $obj);
 
-  if (!checkValues([$mobile_phone, $email, $password])) {
+  if (!checkValues([$mobile_phone])) {
     $result['message'] = '資料不得為空';
     outputJSON($result);
   }
@@ -28,9 +26,7 @@ if (isset($_POST['content'])) {
 
   $table        = USER_ACCOUNT;
   $column       = "*";
-  $whereClause  = "mobile_phone = '{$mobile_phone}' 
-               AND email = '{$email}' 
-               AND password = '{$password}'";
+  $whereClause  = "mobile_phone = '{$mobile_phone}'";
 
   $sql = "SELECT {$column} FROM {$table} WHERE {$whereClause}";
   $rs  = $db->getOne($sql);
