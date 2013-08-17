@@ -1,6 +1,6 @@
 <?php
 
-function getAccount() {
+function getUsername() {
   return '';
 }
 

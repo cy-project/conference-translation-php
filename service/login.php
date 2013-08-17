@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(dirname(__FILE__)) .'/common/init.php');
+require(dirname(__DIR__) .'/common/init.php');
 
 if (isset($_POST['content'])) {
 
@@ -12,33 +12,35 @@ if (isset($_POST['content'])) {
     $obj = json_decode($_POST['content']);
   } catch (Exception $e) {
     $result['message'] = '資料格式有誤，無法解析JSON.';
-    jsonOutput($result);
+    outputJSON($result);
   }
 
-  $mobile_phone = keyExists('mobile_phone', $obj);
-  $email        = keyExists('email'       , $obj);
-  $password     = keyExists('password'    , $obj);
+  $mobile_phone = hasKeyExists('mobile_phone', $obj);
+  $email        = hasKeyExists('email'       , $obj);
+  $password     = hasKeyExists('password'    , $obj);
 
-  if ( !checkValues([$mobile_phone, $email, $password]) ) {
+  if (!checkValues([$mobile_phone, $email, $password])) {
     $result['message'] = '資料不得為空';
-    jsonOutput($result);
+    outputJSON($result);
   }
 
   $db = new DB();
 
   $table        = USER_ACCOUNT;
   $column       = "*";
-  $whereClause  = "mobile_phone = '{$mobile_phone}' AND email = '{$email}' AND password = '{$password}'";
+  $whereClause  = "mobile_phone = '{$mobile_phone}' 
+               AND email = '{$email}' 
+               AND password = '{$password}'";
 
   $sql = "SELECT {$column} FROM {$table} WHERE {$whereClause}";
-  $rs  = $db->dbGetOne($sql);
+  $rs  = $db->getOne($sql);
 
-  if ( count($rs) == 1 ) {
+  if (count($rs) == 1) {
     $result['success']  = true;
     $result['message']  = '登入成功';
   } else {
     $result['message']  = '登入失敗';
   }
 
-  jsonOutput($result);
+  outputJSON($result);
 }

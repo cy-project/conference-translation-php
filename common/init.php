@@ -1,7 +1,7 @@
 <?php
 
-require_once(dirname(__FILE__) .'/password.php');
-require_once(dirname(__FILE__) .'/config.php');
-require_once(dirname(__FILE__) .'/db.php');
-require_once(dirname(__FILE__) .'/functions.php');
-require_once(dirname(__FILE__) .'/defsMsg.php');
+require(__DIR__ .'/password.php');
+require(__DIR__ .'/config.php');
+require(__DIR__ .'/database.php');
+require(__DIR__ .'/functions.php');
+require(__DIR__ .'/defsMsg.php');

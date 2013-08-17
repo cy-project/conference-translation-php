@@ -10,7 +10,7 @@
   return String
 */
 
-function keyExists( $key, $obj ) {
+function hasKeyExists($key, $obj) {
   $result = null;
 
   if (array_key_exists($key, $obj)) {
@@ -27,8 +27,8 @@ function keyExists( $key, $obj ) {
 
   return String
 */
-function dbEncrypt( $data ) {
-  return SHA1($data);
+function dbEncrypt($data) {
+  return SHA1($data .SYS_DBSALT);
 }
 
 /**
@@ -38,10 +38,10 @@ function dbEncrypt( $data ) {
 
   return  bool
 */
-function checkValues( $values) {
-  $len = count( $values );
+function checkValues($values) {
+  $len = count($values);
   for ($i = 0; $i < $len; $i++) {
-    if ( !isset($values[$i]) || $values[$i] == null || empty($values[$i])) {
+    if (!isset($values[$i]) || $values[$i] == null || empty($values[$i])) {
       return false;
     }
   }
@@ -57,7 +57,7 @@ function checkValues( $values) {
   return jsonObject
 */
 
-function jsonOutput( $result ) {
-  echo json_encode( $result );
+function outputJSON($result) {
+  echo json_encode($result);
   exit();
 }

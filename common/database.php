@@ -1,20 +1,20 @@
 <?php
-class DB {
+class database {
   
   private $dbh        = null;
   private $encode     = SYS_DBENCODE;
   private $fetchModel = PDO::FETCH_ASSOC;
 
   public function __construct() {
-    $dbConnection   = SYS_DBTYPE .':host=' .SYS_DBHOST .';dbname=' .SYS_DBNAME;
-    $dbOptions      = [PDO::MYSQL_ATTR_INIT_COMMAND => 'set names ' .SYS_DBENCODE];
-    $dbUsername     = SYS_DBUSER;
-    $dbPassword     = SYS_DBPASSWORD;
+    $connection   = SYS_DBTYPE .':host=' .SYS_DBHOST .';dbname=' .SYS_DBNAME;
+    $options      = [PDO::MYSQL_ATTR_INIT_COMMAND => 'set names ' .SYS_DBENCODE];
+    $username     = SYS_USERNAME;
+    $password     = SYS_PASSWORD;
 
     try {
-      $this->dbh  = new PDO($dbConnection, $dbUsername, $dbPassword, $dbOptions);
+      $this->dbh  = new PDO($connection, $username, $password, $options);
     } catch (PDOException $e) {
-      $this->debugOutputException($e);
+      $this->outputDebugException($e);
     }
   }
 
@@ -23,7 +23,7 @@ class DB {
     $this->dbh->exec($sql);
   }
 
-  private function _pdoStatment( $sql ) {
+  private function getPDOStatment($sql) {
     $stmt = null;
 
     $this->initExec();
@@ -32,27 +32,27 @@ class DB {
       $stmt = $this->dbh->prepare($sql);
       $stmt->execute();
     } catch (PDOException $e) {
-      debugOutputException($e);
+      outputDebugException($e);
     }
 
     return $stmt;
   }
 
-  public function dbGetAll( $sql ) {
-    $stmt = $this->_pdoStatment($sql);
+  public function getAll($sql) {
+    $stmt = $this->getPDOStatment($sql);
     $rs = $stmt->fetchAll($this->fetchModel);
 
-    if ( !$rs ) {
+    if (!$rs) {
       return false;
     }
 
     return $rs;
   }
 
-  public function dbGetOne( $sql ) {
+  public function getOne($sql) {
     $sql .= ' LIMIT 1';
 
-    $stmt = $this->_pdoStatment($sql);
+    $stmt = $this->_getPDOStatment($sql);
     $rs   = $stmt->fetch($this->fetchModel);
 
     if ( !$rs ) {
@@ -62,7 +62,7 @@ class DB {
     return $rs;
   }
 
-  public function dbInsert( $table, $arrayField) {
+  public function insert($table, $arrayField) {
     return $this->insertUpdateParpare('INSERT', $table, $arrayField);
   }
 
@@ -78,7 +78,7 @@ class DB {
     $arrayValues   = [];
 
 
-    if ( $queryType == 'INSERT' ) {
+    if ($queryType == 'INSERT') {
       $columns = $arrayColumns[0];
       $values  = "?";
       for ($i = 0; $i < count($arrayColumns); $i++) {
@@ -91,22 +91,22 @@ class DB {
       }
 
       $sql  = "INSERT INTO {$table} ({$columns}) VALUES ({$values})";
-      $stmt = $this->dbh->prepare( $sql );
+      $stmt = $this->dbh->prepare($sql);
     }
-    else if ( $queryType == 'UPDATE' ) {
+    else if ($queryType == 'UPDATE') {
     }
 
     try {
       $this->initExec();
       $result = $stmt->execute($arrayValues);
     } catch (PDOException $e) {
-      $this->debugOutputException($e);
+      $this->outputDebugException($e);
     }
 
     return $result;
   }
 
-  private function debugOutputException( $e ) {
+  private function outputDebugException($e) {
     echo 'PDO exception that "' .$e->getMessage() .'"';
     return false;
   }

@@ -1,5 +1,5 @@
 <?php
-require_once(dirname((dirname(__FILE__ ))) .'/common/init.php');
+require(dirname(__DIR__) .'/common/init.php');
 
 if (isset($_POST['content'])) {
   $obj        = json_decode($_POST['content']);
@@ -9,20 +9,21 @@ if (isset($_POST['content'])) {
     'success' => false
   ];
 
-  $mobile_phone = keyExists('mobile_phone', $obj);
-  $email        = keyExists('email'       , $obj);
-  $password     = keyExists('password'    , $obj);
-  $name         = keyExists('name'        , $obj);
+  $mobile_phone = hasKeyExists('mobile_phone', $obj);
+  $email        = hasKeyExists('email'       , $obj);
+  $password     = hasKeyExists('password'    , $obj);
+  $name         = hasKeyExists('name'        , $obj);
 
-  if ( !checkValues([$mobile_phone, $email, $password, $name]) ) {
+  if (!checkValues([$mobile_phone, $email, $password, $name])) {
     $result['message']  = $MSG['empty_data_fails'];
     $result['success']  = false;
 
-    jsonOutput($result);
+    outputJSON($result);
   }
 
   $table = SYS_DBNAME . '.' .USER_ACCOUNT;
-
+  
+  // create account
   $arrayField = [];
   $arrayField = [
     'mobile_phone'  => $mobile_phone,
@@ -32,7 +33,7 @@ if (isset($_POST['content'])) {
   ];
 
   $db = new DB();
-  $dbResult = $db->dbInsert( $table, $arrayField );
+  $dbResult = $db->insert( $table, $arrayField );
 
   if ( $dbResult ) {
     $result['message']  = $MSG['add_data_success'];
@@ -42,5 +43,5 @@ if (isset($_POST['content'])) {
     $result['success']  = false;
   }
 
-  jsonOutput($result);
+  outputJSON($result);
 }
