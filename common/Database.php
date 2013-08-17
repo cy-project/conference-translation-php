@@ -1,13 +1,13 @@
 <?php
-class database {
+class Database {
   
   private $dbh        = null;
-  private $encode     = SYS_DBENCODE;
+  private $encode     = DB_ENCODE;
   private $fetchModel = PDO::FETCH_ASSOC;
 
   public function __construct() {
-    $connection   = SYS_DBTYPE .':host=' .SYS_DBHOST .';dbname=' .SYS_DBNAME;
-    $options      = [PDO::MYSQL_ATTR_INIT_COMMAND => 'set names ' .SYS_DBENCODE];
+    $connection   = DB_TYPE .':host=' .DB_HOST .';dbname=' .DB_NAME;
+    $options      = [PDO::MYSQL_ATTR_INIT_COMMAND => 'set names ' .DB_ENCODE];
     $username     = SYS_USERNAME;
     $password     = SYS_PASSWORD;
 

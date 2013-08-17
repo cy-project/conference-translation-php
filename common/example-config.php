@@ -3,13 +3,13 @@
 /**
 *  Database Params
 */
-define('SYS_DBNAME'     , '');
-define('SYS_DBTYPE'     , '');
-define('SYS_DBUSERNAME' , getUsername());
-define('SYS_DBPASSWORD' , getPassword());
-define('SYS_DBENCODE'   , '');
-define('SYS_DBHOST'     , '');
-define('SYS_DBSALT'     , '');
+define('DB_NAME'     , '');
+define('DB_TYPE'     , '');
+define('DB_USERNAME' , getUsername());
+define('DB_PASSWORD' , getPassword());
+define('DB_ENCODE'   , '');
+define('DB_HOST'     , '');
+define('DB_SALT'     , '');
 
 /**
 * Database Tables

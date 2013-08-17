@@ -26,7 +26,7 @@ if (isset($_POST['content'])) {
     'mobile_phone'  => $mobile_phone
   ];
 
-  $db = new database();
+  $db = new Database();
   $dbResult = $db->insert($table, $arrayField);
 
   if ( $dbResult ) {
