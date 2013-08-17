@@ -1,13 +1,7 @@
 <?php
 
 /**
- * Database 
- * 
- * @package 
- * @version $id$
- * @copyright 1997-2005 The PHP Group
- * @author Tobias Schlitt <toby@php.net> 
- * @license PHP Version 3.0 {@link http://www.php.net/license/3_0.txt}
+ * Database 資料庫
  */
 class Database {
 
@@ -48,9 +42,9 @@ class Database {
     /**
      * getPDOStatment 
      * 
-     * @param mixed $sql 
+     * @param string $sql 
      * @access private
-     * @return stmt
+     * @return object
      */
     private function getPDOStatment($sql) {
         $stmt = null;
@@ -70,9 +64,9 @@ class Database {
     /**
      * getAll 
      * 
-     * @param mixed $sql 
+     * @param string $sql 
      * @access public
-     * @return rs
+     * @return array
      */
     public function getAll($sql) {
         $stmt = $this->getPDOStatment($sql);
@@ -88,9 +82,9 @@ class Database {
     /**
      * getOne 
      * 
-     * @param mixed $sql 
+     * @param string $sql 
      * @access public
-     * @return rs
+     * @return array
      */
     public function getOne($sql) {
         $sql .= ' LIMIT 1';
@@ -108,10 +102,10 @@ class Database {
     /**
      * insert 
      * 
-     * @param mixed $table 
-     * @param mixed $arrayField 
+     * @param string $table 
+     * @param array  $arrayField 
      * @access public
-     * @return result
+     * @return boolean
      */
     public function insert($table, $arrayField) {
         return $this->insertUpdateParpare('INSERT', $table, $arrayField);
@@ -120,12 +114,12 @@ class Database {
     /**
      * insertUpdateParpare 
      * 
-     * @param mixed $queryType 
-     * @param mixed $table 
-     * @param mixed $arrayField 
+     * @param string $queryType 
+     * @param string $table 
+     * @param array  $arrayField 
      * @param string $whereClause 
      * @access private
-     * @return result
+     * @return boolean
      */
     private function insertUpdateParpare( $queryType, $table, $arrayField, $whereClause='' ) {
         if (empty($arrayField) || empty($table)) {
@@ -170,7 +164,7 @@ class Database {
     /**
      * outputDebugException 
      * 
-     * @param mixed $e 
+     * @param string $e 
      * @access private
      * @return boolean
      */
