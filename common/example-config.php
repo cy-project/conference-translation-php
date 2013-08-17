@@ -7,7 +7,7 @@ define('DB_NAME'     , '');
 define('DB_TYPE'     , '');
 define('DB_USERNAME' , getUsername());
 define('DB_PASSWORD' , getPassword());
-define('DB_ENCODE'   , '');
+define('DB_ENCODING'   , '');
 define('DB_HOST'     , '');
 define('DB_SALT'     , '');
 

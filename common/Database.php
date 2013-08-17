@@ -2,12 +2,12 @@
 class Database {
 
     private $dbh        = null;
-    private $encode     = DB_ENCODE;
+    private $encoding     = DB_ENCODING;
     private $fetchModel = PDO::FETCH_ASSOC;
 
     public function __construct() {
         $connection   = DB_TYPE .':host=' .DB_HOST .';dbname=' .DB_NAME;
-        $options      = [PDO::MYSQL_ATTR_INIT_COMMAND => 'set names ' .DB_ENCODE];
+        $options      = [PDO::MYSQL_ATTR_INIT_COMMAND => 'set names ' .DB_ENCODING];
         $username     = SYS_USERNAME;
         $password     = SYS_PASSWORD;
 
@@ -19,7 +19,7 @@ class Database {
     }
 
     private function initExec() {
-        $sql      = 'set names '. $this->encode;
+        $sql      = 'set names '. $this->encoding;
         $this->dbh->exec($sql);
     }
 
