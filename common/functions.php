@@ -4,20 +4,20 @@
   keyExists 判斷陣列中是否有此欄位，如果有則回傳內容
 
   @key  欄位名稱
-  
+
   @obj  陣列
 
   return String
-*/
+ */
 
 function hasKeyExists($key, $obj) {
-  $result = null;
+    $result = null;
 
-  if (array_key_exists($key, $obj)) {
-    $result = $obj->$key;
-  }
+    if (array_key_exists($key, $obj)) {
+        $result = $obj->$key;
+    }
 
-  return $result;
+    return $result;
 }
 
 /**
@@ -26,9 +26,9 @@ function hasKeyExists($key, $obj) {
   @data 要加密的資料
 
   return String
-*/
+ */
 function dbEncrypt($data) {
-  return SHA1($data .SYS_DBSALT);
+    return SHA1($data .SYS_DBSALT);
 }
 
 /**
@@ -37,16 +37,16 @@ function dbEncrypt($data) {
   @values     陣列
 
   return  bool
-*/
+ */
 function checkValues($values) {
-  $len = count($values);
-  for ($i = 0; $i < $len; $i++) {
-    if (!isset($values[$i]) || $values[$i] == null || empty($values[$i])) {
-      return false;
+    $len = count($values);
+    for ($i = 0; $i < $len; $i++) {
+        if (!isset($values[$i]) || $values[$i] == null || empty($values[$i])) {
+            return false;
+        }
     }
-  }
 
-  return true;
+    return true;
 }
 
 /**
@@ -55,9 +55,9 @@ function checkValues($values) {
   @result   陣列
 
   return jsonObject
-*/
+ */
 
 function outputJSON($result) {
-  echo json_encode($result);
-  exit();
+    echo json_encode($result);
+    exit();
 }

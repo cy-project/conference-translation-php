@@ -1,9 +1,9 @@
 <?php
 
 function getUsername() {
-  return '';
+    return '';
 }
 
 function getPassword() {
-  return '';
+    return '';
 }

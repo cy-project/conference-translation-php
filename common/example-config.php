@@ -1,8 +1,8 @@
 <?php
 
 /**
-*  Database Params
-*/
+ *  Database Params
+ */
 define('DB_NAME'     , '');
 define('DB_TYPE'     , '');
 define('DB_USERNAME' , getUsername());
@@ -12,6 +12,6 @@ define('DB_HOST'     , '');
 define('DB_SALT'     , '');
 
 /**
-* Database Tables
-*/
+ * Database Tables
+ */
 define('USER_ACCOUNT'   , '');
