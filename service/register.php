@@ -14,8 +14,6 @@ if (isset($_POST['content'])) {
   $password     = keyExists('password'    , $obj);
   $name         = keyExists('name'        , $obj);
 
-  $password     = $password == null ? null : dbEncrypt($password);
-
   if ( !checkValues([$mobile_phone, $email, $password, $name]) ) {
     $result['message']  = $MSG['empty_data_fails'];
     $result['success']  = false;

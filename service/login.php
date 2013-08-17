@@ -19,8 +19,6 @@ if (isset($_POST['content'])) {
   $email        = keyExists('email'       , $obj);
   $password     = keyExists('password'    , $obj);
 
-  $password     = $password == null ? null : dbEncrypt($password);
-
   if ( !checkValues([$mobile_phone, $email, $password]) ) {
     $result['message'] = '資料不得為空';
     jsonOutput($result);
