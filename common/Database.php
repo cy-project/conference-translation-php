@@ -24,8 +24,8 @@ class Database {
     public function __construct() {
         $connection   = DB_TYPE .':host=' .DB_HOST .';dbname=' .DB_NAME;
         $options      = [PDO::MYSQL_ATTR_INIT_COMMAND => 'set names ' .DB_ENCODING];
-        $username     = SYS_USERNAME;
-        $password     = SYS_PASSWORD;
+        $username     = DB_USERNAME;
+        $password     = DB_PASSWORD;
 
         try {
             $this->dbh  = new PDO($connection, $username, $password, $options);

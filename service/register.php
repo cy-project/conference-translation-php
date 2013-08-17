@@ -18,7 +18,7 @@ if (isset($_POST['content'])) {
         outputJSON($result);
     }
 
-    $table = SYS_DBNAME . '.' .USER_ACCOUNT;
+    $table = DB_NAME . '.' .USER_ACCOUNT;
 
     // create account
     $arrayField = [];
