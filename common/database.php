@@ -52,7 +52,7 @@ class database {
   public function getOne($sql) {
     $sql .= ' LIMIT 1';
 
-    $stmt = $this->_getPDOStatment($sql);
+    $stmt = $this->getPDOStatment($sql);
     $rs   = $stmt->fetch($this->fetchModel);
 
     if ( !$rs ) {

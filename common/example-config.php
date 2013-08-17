@@ -9,7 +9,7 @@ define('SYS_DBUSERNAME' , getUsername());
 define('SYS_DBPASSWORD' , getPassword());
 define('SYS_DBENCODE'   , '');
 define('SYS_DBHOST'     , '');
-define('SYS_DBSALT'     , ''
+define('SYS_DBSALT'     , '');
 
 /**
 * Database Tables
