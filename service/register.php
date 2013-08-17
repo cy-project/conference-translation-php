@@ -32,7 +32,7 @@ if (isset($_POST['content'])) {
     'name'          => $name
   ];
 
-  $db = new DB();
+  $db = new database();
   $dbResult = $db->insert( $table, $arrayField );
 
   if ( $dbResult ) {

@@ -24,7 +24,7 @@ if (isset($_POST['content'])) {
     outputJSON($result);
   }
 
-  $db = new DB();
+  $db = new database();
 
   $table        = USER_ACCOUNT;
   $column       = "*";
