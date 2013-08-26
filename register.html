@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>註冊</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="STU icon" href="./images/favicon.png">
+  <link rel="stylesheet" type="text/css" media="all" href="./css/register.css">
+  <link rel="stylesheet" type="text/css" media="all" href="./css/responsive.css">
+</head>
+
+<body>
+
+	<section id="container">
+		<span class="chyron"><em><a href="./index.html">&laquo; 回首頁</a></em></span>
+		<h2>請填寫您的基本資料</h2>
+		<form name="hongkiat" id="hongkiat-form" method="post" action="#">
+		<div id="wrapping" class="clearfix">
+			<section id="aligned">
+			<input type="text" name="name" id="name" placeholder="姓名" autocomplete="off" tabindex="1" class="txtinput">
+		
+			<input type="email" name="email" id="email" placeholder="e-mail" autocomplete="off" tabindex="2" class="txtinput">
+			
+			<input type="account" name="account" id="account" placeholder="帳號" autocomplete="off" tabindex="2" class="txtinput">
+		
+			<input type="url" name="password" id="password" placeholder="密碼" autocomplete="off" tabindex="3" class="txtinput">
+		
+			<input type="tel" name="telephone" id="telephone" placeholder="聯絡電話" tabindex="4" class="txtinput">
+		
+			<textarea name="message" id="message" placeholder="備註" tabindex="5" class="txtblock"></textarea>
+			</section>
+			
+			<section id="aside" class="clearfix">
+				<section id="recipientcase">
+				<h3>身分</h3>
+					<select id="recipient" name="recipient" tabindex="6" class="selmenu">
+  						<option value="Admin">語言治療師</option>
+  						<option value="Colloage">幼教老師</option>
+						<option value="Colloage">大學生</option>
+  						<option value="technical">其他人員</option>
+
+					</select>
+				</section>
+				
+				<!--<section id="prioritycase">
+					<h3>Priority:</h3>
+					<span class="radiobadge">
+						<input type="radio" id="low" name="priority" value="low">
+						<label for="low">Low</label>
+					</span>
+				
+					<span class="radiobadge">
+						<input type="radio" id="med" name="priority" value="med" checked="checked">
+						<label for="med">Medium</label>
+					</span>
+				
+					<span class="radiobadge">
+						<input type="radio" id="high" name="priority" value="high">
+						<label for="high">High</label>
+					</span>
+				</section>-->
+			</section>
+		</div>
+
+
+		<section id="buttons">
+			<input type="reset" name="reset" id="resetbtn" class="resetbtn" value="清除">
+			<input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="送出">
+			<br style="clear:both;">
+		</section>
+		</form>
+	</section>
+
+</body>
+</html>
