@@ -94,22 +94,21 @@
             <li ><a href="users-other.html">其他身分</a></li>
         </ul>
 
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-folder-open"></i>專案<i class="icon-chevron-up"></i></a>
+        <a href="#accounts-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-folder-open"></i>專案<i class="icon-chevron-up"></i></a>
         <ul id="accounts-menu" class="nav nav-list collapse in">
             <li class="active"><a href="project.html">專案管理</a></li>
             <li ><a href="users-testlist.html">受測名單</a></li>
-            <li ><a href="project.html">評分狀況</a></li>
         </ul>
 
         <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-search"></i>追蹤<i class="icon-chevron-up"></i></a>
         <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="users.html">追蹤名單</a></li>
+            <li ><a href="users-track.html">追蹤名單</a>></li>
         </ul>
 
-        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-th-list"></i>圖表<i class="icon-chevron-up"></i></a>
+        <a href="#legal-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-th-list"></i>圖表<i class="icon-chevron-up"></i></a>
         <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="project.html">評測結果</a></li>
-            <li ><a href="project.html">匯出檔案</a></li>
+            <li ><a href="#">評測結果</a></li>
+            <li ><a href="#">匯出檔案</a></li>
         </ul>
     </div>
     
@@ -124,7 +123,7 @@
         
         <ul class="breadcrumb">
             <li><a href="index.html">首頁</a> <span class="divider">/</span></li>
-            <li class="active">專案管理 <span class="divider">/</span></li>
+            <li><a href="project.html">專案管理 </a><span class="divider">/</span></li>
 			<li class="active">OO幼稚園</li>
         </ul>
 
@@ -132,7 +131,7 @@
             <div class="row-fluid">
                     
 <div class="btn-toolbar">
-    <button class="btn btn-primary"><i class="icon-plus"></i> 新增</button>
+    <a href="user-newtest.html"><button class="btn btn-primary"><i class="icon-plus"></i> 新增</button></a>
     <button class="btn">Import</button>
     <button class="btn">Export</button>
   <div class="btn-group">
@@ -145,6 +144,7 @@
           <th>#</th>
           <th>學生名稱</th>
           <th>評分狀況</th>
+          <th>施測者</th>
           <th>檢測者</th>
           <th style="width: 26px;"></th>
         </tr>
@@ -153,21 +153,34 @@
         <tr>
           <td>1</td>
           <td>王小明</td>
-          <td>100%</td>
+          <td>60%</td>
+          <td>施測者B</td>
           <td>語言治療師A</td>
           <td>
-              <a href="user.html"><i class="icon-pencil"></i></a>
-              <a href="project-data.html"><i class="icon-arrow-right"></i></a>
+              <a href="user-testlist.html"><i class="icon-pencil"></i></a>
+              <a href="project-data-result.html"><i class="icon-arrow-right"></i></a>
           </td>
         </tr>
         <tr>
           <td>2</td>
           <td>李小刀</td>
-          <td>70%</td>
-          <td>語言治療師A</td>
+          <td>無</td>
+          <td>施測者B</td>
+          <td>尚未檢測</td>
           <td>
-              <a href="user.html"><i class="icon-pencil"></i></a>
-			  <a href="project-data.html"><i class="icon-arrow-right"></i></a>
+              <a href="user-testlist.html"><i class="icon-pencil"></i></a>
+			  <a href="#"><i class="icon-arrow-right"></i></a>
+          </td>
+        </tr>
+		<tr>
+          <td>3</td>
+          <td>張大三</td>
+          <td>無</td>
+          <td>無</td>
+          <td>尚未檢測</td>
+          <td>
+              <a href="user-testlist.html"><i class="icon-pencil"></i></a>
+			  <a href="#"><i class="icon-arrow-right"></i></a>
           </td>
         </tr>
       </tbody>

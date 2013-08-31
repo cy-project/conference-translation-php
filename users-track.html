@@ -86,11 +86,11 @@
     
     <div class="sidebar-nav">
         </ul><a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-user"></i>管理<span class="label label-info">+3</span></a>
-        <ul id="dashboard-menu" class="nav nav-list collapse in">
+        <ul id="dashboard-menu" class="nav nav-list collapse">
             <li ><a href="users.html">申請狀況</a></li>
 			<li ><a href="users-teacher.html">教師</a></li>
             <li ><a href="users-rater.html">語言治療師</a></li>
-            <li class="active"><a href="users-colledge.html">大學生</a></li>
+            <li ><a href="users-colledge.html">大學生</a></li>
             <li ><a href="users-other.html">其他身分</a></li>
         </ul>
 
@@ -101,8 +101,8 @@
         </ul>
 
         <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-search"></i>追蹤<i class="icon-chevron-up"></i></a>
-        <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="users-track.html">追蹤名單</a></li>
+        <ul id="error-menu" class="nav nav-list collapse in">
+            <li class="active"><a href="users-track.html">追蹤名單</a></li>
         </ul>
 
         <a href="#legal-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-th-list"></i>圖表<i class="icon-chevron-up"></i></a>
@@ -118,12 +118,12 @@
         
         <div class="header">
             
-            <h1 class="page-title">大學生</h1>
+            <h1 class="page-title">追蹤名單</h1>
         </div>
         
                 <ul class="breadcrumb">
             <li><a href="index.html">首頁</a> <span class="divider">/</span></li>
-            <li class="active">大學生</li>
+            <li class="active">追蹤名單</li>
         </ul>
 
         <div class="container-fluid">
@@ -141,48 +141,85 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>姓名</th>
-          <th>身分</th>
-          <th>目前專案</th>
-          <th>備註</th>
+          <th>學生姓名</th>
+          <th>評分狀況</th>
+          <th>施測者</th>
+          <th>檢測者</th>
+          <th>學校</th>
           <th style="width: 45px;"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td>Mark</td>
-          <td>大學生</td>
+          <td>王小明</td>
+          <td>60%</td>
+          <td>施測者B</td>
+          <td>語言治療師A</td>
           <td>OO幼兒園</td>
-          <td>the_mark7</td>
           <td>
-              <a href="user-colledge-addpro.html"><i class="icon-plus"></i></a>
-			  <a href="user-colledge.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+			  <a href="project-data-result.html"><i class="icon-arrow-right"></i></a>
           </td>
         </tr>
         <tr>
           <td>2</td>
           <td>Ashley</td>
-          <td>大學生</td>
-          <td>尚未分配</td>
-          <td>ash11927</td>
+          <td>65%</td>
+          <td>施測者A</td>
+          <td>語言治療師A</td>
+          <td>OO幼兒園</td>
           <td>
-              <a href="user-colledge-addpro.html"><i class="icon-plus"></i></a>
-			  <a href="user-colledge.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+			  <a href="#"><i class="icon-arrow-right"></i></a>
           </td>
         </tr>
         <tr>
           <td>3</td>
           <td>Audrey</td>
-          <td>大學生</td>
+          <td>55%</td>
+          <td>施測者B</td>
+          <td>語言治療師A</td>
           <td>XX幼兒園</td>
-          <td>audann84</td>
           <td>
-              <a href="user-colledge-addpro.html"><i class="icon-plus"></i></a>
-			  <a href="user-colledge.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+			  <a href="#"><i class="icon-arrow-right"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>John</td>
+          <td>40%</td>
+          <td>施測者B</td>
+          <td>語言治療師A</td>
+          <td>XX幼兒園</td>
+          <td>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+			  <a href="#"><i class="icon-arrow-right"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Aaron</td>
+          <td>50%</td>
+          <td>施測者B</td>
+          <td>語言治療師A</td>
+          <td>OO幼兒園</td>
+          <td>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+			  <a href="#"><i class="icon-arrow-right"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Chris</td>
+          <td>60%</td>
+          <td>施測者A</td>
+          <td>語言治療師A</td>
+          <td>XX幼兒園</td>
+          <td>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a href="#"><i class="icon-arrow-right"></i></a>
           </td>
         </tr>
       </tbody>
